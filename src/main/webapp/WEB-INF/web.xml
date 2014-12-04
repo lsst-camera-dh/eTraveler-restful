@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	 version="3.0">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    
+    <servlet>
+        <servlet-name>Jersey REST Service</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <!-- Location of the root application class -->
+            <param-value>org.lsst.etraveler_restful.rest.App</param-value>
+        </init-param>
+        <init-param>
+            
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <!-- comma separated list of packages with REST resources -->
+            <param-value>org.lsst.etraveler_restful.rest.resources</param-value> 
+        </init-param>
+        
+        <!-- There are for debugging It will put debug information in your HTTP headers -->
+        <init-param>
+            <param-name>jersey.config.server.response.setStatusOverSendError</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.tracing.type</param-name>
+            <param-value>ALL</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.tracing.threshold</param-name>
+            <param-value>VERBOSE</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    
+    <servlet-mapping>
+        <servlet-name>Jersey REST Service</servlet-name>
+        <!-- using base of host/rest.  Your resources will start there, i.e. host/rest/example1 -->
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+    
+    
+</web-app>

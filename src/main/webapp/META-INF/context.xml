@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/etraveler_restful">
+  <ResourceLink global="jdbc/rd-lsst-cam" name="jdbc/rd-lsst-cam" type="javax.sql.DataSource" />
+  <ResourceLink global="jdbc/rd-lsst-cam-dev" name="jdbc/rd-lsst-cam-dev" type="javax.sql.DataSource" />
+  <ResourceLink global="jdbc/rd-lsst-cmft" name="jdbc/rd-lsst-cmft" type="javax.sql.DataSource" />
+  <ResourceLink global="jdbc/rd-lsst-camt" name="jdbc/rd-lsst-camt" type="javax.sql.DataSource" />
+</Context>
+  
